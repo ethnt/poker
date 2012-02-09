@@ -8,39 +8,39 @@ import java.util.*;
  */
 public class CardTest extends junit.framework.TestCase {
 		
-    public CardTest() { }
+	public CardTest() { }
 
-    protected void setUp() { }
+	protected void setUp() { }
 
-    protected void tearDown() { }
-    
+	protected void tearDown() { }
+	
 	/**
-     * Test non-integer value of face card.
-     */
+	 * Test non-integer value of face card.
+	 */
 	public void testValue() {
-        Card c1 = new Card("J", "hearts");
-        assertEquals("J", c1.value());
-    }
+		Card c1 = new Card("J", "hearts");
+		assertEquals("J", c1.value());
+	}
 
-    /**
-     * Test integer value of face card.
-     */
+	/**
+	 * Test integer value of face card.
+	 */
 	public void testIntValue() {
 		Card c1 = new Card("J", "hearts");
 		assertEquals(11, c1.intValue());
 	}
 	
-    /**
-     * Test the suit.
-     */
+	/**
+	 * Test the suit.
+	 */
 	public void testSuit() {
 		Card c1 = new Card("A", "spades");
 		assertEquals("spades", c1.suit());
 	}
 	
-    /**
-     * Test stronger card.
-     */
+	/**
+	 * Test stronger card.
+	 */
 	public void testStrongerCard() {
 		Card c1 = new Card("A", "spades");
 		Card c2 = new Card("2", "hearts");
@@ -48,9 +48,9 @@ public class CardTest extends junit.framework.TestCase {
 		assertEquals(1, c1.compareTo(c2));
 	}
 
-    /**
-     * Test weaker card.
-     */
+	/**
+	 * Test weaker card.
+	 */
 	public void testWeakerCard() {
 		Card c1 = new Card("2", "hearts");
 		Card c2 = new Card("A", "spades");
@@ -69,8 +69,8 @@ public class CardTest extends junit.framework.TestCase {
 	}
 	
 	/**
-     * Test equal card.
-     */
+	 * Test equal card.
+	 */
 	public void testEqualCard() {
 		Card c1 = new Card("2", "hearts");
 		Card c2 = new Card("2", "clubs");
