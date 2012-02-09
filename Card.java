@@ -66,7 +66,7 @@ public class Card implements Comparable<Card> {
     /**
      * Get the raw numerical value of the value.
      * 
-     * @return  The value.
+     * @return  The value in numerical form (2-10, jack is 11, queen is 12, king is 13, ace is 14).
      */
     public int intValue() {
         return value;
@@ -75,7 +75,7 @@ public class Card implements Comparable<Card> {
     /**
      * Get the suit (hearts, spades, clubs, diamonds).
      * 
-     * @return   The suit.
+     * @return   The suit (hearts, spades, clubs, diamonds).
      */
     public String suit() {
         return suit;
@@ -84,8 +84,8 @@ public class Card implements Comparable<Card> {
     /**
      * Check if two cards are equal.
      * 
-     * @param  c   Another card.
-     * @return     A boolean value.
+     * @param   c   Another card.
+     * @return      A boolean value.
      */
     public boolean equals(Card c) {
         boolean result = false;
@@ -100,8 +100,8 @@ public class Card implements Comparable<Card> {
     /**
      * Compare two cards.
      * 
-     * @param  c  Another card.
-     * @return    An integer. If 0, then they are equal, -1 if the current card (the one calling the method) is weaker than the other, and 1 if the card calling the method is better.
+     * @param   c  Another card.
+     * @return     An integer. If 0, then they are equal, -1 if the current card (the one calling the method) is weaker than the other, and 1 if the card calling the method is better.
      */
     public int compareTo(Card c) {
         int result = 0;

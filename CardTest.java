@@ -1,46 +1,44 @@
-// Work in progress.
-
 /**
  * The test class CardTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author  (Ethan Turkeltaub)
+ * @version (0.1.0)
  */
-public class CardTest extends junit.framework.TestCase
-{
-    /**
-     * Default constructor for test class CardTest
-     */
-    public CardTest()
-    {
-    }
+public class CardTest extends junit.framework.TestCase {
 
-    /**
-     * Sets up the test fixture.
-     *
-     * Called before every test case method.
-     */
-    protected void setUp()
-    {
-    }
+    public CardTest() { }
 
-    /**
-     * Tears down the test fixture.
-     *
-     * Called after every test case method.
-     */
-    protected void tearDown()
-    {
-    }
+    protected void setUp() { }
+
+    protected void tearDown() { }
     
-    // Make separate tests for this.
-    public void testComparing()
-    {
-        Card c1 = new Card("2", "hearts");
-        Card c2 = new Card("A", "spades");
-        assertEquals(-1, c1.compareTo(c2));
-        assertEquals(1, c2.compareTo(c1));
-        Card c3 = new Card("2", "hearts");
-        assertEquals(0, c3.compareTo(c1));
-    }
+    /**
+     * Test stronger card.
+     */
+	public void testStrongerCard() {
+		Card c1 = new Card("A", "spades");
+		Card c2 = new Card("2", "hearts");
+		
+		assertEquals(1, c1.compareTo(c2));
+	}
+
+    /**
+     * Test weaker card.
+     */
+	public void testWeakerCard() {
+		Card c1 = new Card("2", "hearts");
+		Card c2 = new Card("A", "spades");
+		
+		assertEquals(-1, c1.compareTo(c2));
+	}
+	
+	/**
+     * Test equal card.
+     */
+	public void testEqualCard() {
+		Card c1 = new Card("2", "hearts");
+		Card c2 = new Card("2", "clubs");
+		
+		assertEquals(0, c1.compareTo(c2));
+	}
 }
