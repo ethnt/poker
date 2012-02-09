@@ -90,7 +90,7 @@ public class Card implements Comparable<Card> {
     public boolean equals(Card c) {
         boolean result = false;
         
-        if (c.value().equals(value()) && c.suit().equals(suit())) {
+        if (this.intValue() == c.intValue()) {
             result = true;
         }
         

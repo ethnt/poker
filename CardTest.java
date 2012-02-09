@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * The test class CardTest.
  *
@@ -25,14 +27,14 @@ public class CardTest extends junit.framework.TestCase {
      */
 	public void testIntValue() {
 		Card c1 = new Card("J", "hearts");
-		assertEquals("11", c1.intValue());
+		assertEquals(11, c1.intValue());
 	}
 	
     /**
      * Test the suit.
      */
 	public void testSuit() {
-		Card c1 = new Card("A", "spades")
+		Card c1 = new Card("A", "spades");
 		assertEquals("spades", c1.suit());
 	}
 	
@@ -54,6 +56,16 @@ public class CardTest extends junit.framework.TestCase {
 		Card c2 = new Card("A", "spades");
 		
 		assertEquals(-1, c1.compareTo(c2));
+	}
+	
+	/**
+	 * Test if equals method works.
+	 */
+	public void testEquals() {
+		Card c1 = new Card("2", "hearts");
+		Card c2 = new Card("2", "spades");
+		
+		assertEquals(true, c1.equals(c2));
 	}
 	
 	/**
