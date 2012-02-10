@@ -15,7 +15,7 @@ public class Card implements Comparable<Card> {
 	 * Constructor for Card. Value (v) is a number from 2-10, J, Q, K, or A. Suit (s) is hearts, spades, clubs, or diamonds.
 	 */
 	public Card(String v, String s) {
-		if (v.equals("2") || v.equals("3") || v.equals("4") || v.equals("5") || v.equals("6") || v.equals("7") || v.equals("8") || v.equals("9") || v.equals("10")) {
+		if (v.equals("2") || v.equals("3") || v.equals("4") || v.equals("5") || v.equals("6") || v.equals("7") || v.equals("8") || v.equals("9") || v.equals("10") || v.equals("11") || v.equals("12") || v.equals("13") || v.equals("14")) {
 			value = Integer.parseInt(v);
 		} else {
 			if (v.equals("J")) {
