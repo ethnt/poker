@@ -1,33 +1,40 @@
-
-/**
- * Write a description of class Deck here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import java.util.*;
 public class Deck
 {
-	// instance variables - replace the example below with your own
-	private int x;
-
-	/**
-	 * Constructor for objects of class Deck
-	 */
-	public Deck()
-	{
-		// initialise instance variables
-		x = 0;
-	}
-
-	/**
-	 * An example of a method - replace this comment with your own
-	 * 
-	 * @param  y   a sample parameter for a method
-	 * @return	 the sum of x and y 
-	 */
-	public int sampleMethod(int y)
-	{
-		// put your code here
-		return x + y;
-	}
+    private ArrayList<Card> deck;
+    public Deck()
+    {
+        deck = new ArrayList<Card>();
+        String s = "spades";
+        String d = "diamonds";
+        String c = "clubs";
+        String h = "hearts";
+        for (int i = 2; i<15; i++)
+        {
+            deck.add(new Card(i,s));
+            deck.add(new Card(i,d));
+            deck.add(new Card(i,c));
+            deck.add(new Card(i,h));
+        }
+    }
+    
+    public void shuffle()
+    {
+        Collections.shuffle(deck);
+    }
+    
+    public boolean equals(Deck other)
+    {
+        return true;
+    }
+    
+    public String toString()
+    {
+        String result = "";
+        for (int i = 0; i<52 ; i++)
+        {
+            result += deck.get(i).getValue() + " " + deck.get(i).getSuite() +" ";
+        }
+        return result;
+    }
 }
