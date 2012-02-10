@@ -11,10 +11,10 @@ public class Deck
         String h = "hearts";
         for (int i = 2; i<15; i++)
         {
-            deck.add(new Card(i,s));
-            deck.add(new Card(i,d));
-            deck.add(new Card(i,c));
-            deck.add(new Card(i,h));
+            deck.add(new Card(""+i,s));
+            deck.add(new Card(""+i,d));
+            deck.add(new Card(""+i,c));
+            deck.add(new Card(""+i,h));
         }
     }
     
@@ -25,7 +25,7 @@ public class Deck
     
     public boolean equals(Deck other)
     {
-        return true;
+        return this == other;
     }
     
     public String toString()
@@ -33,7 +33,7 @@ public class Deck
         String result = "";
         for (int i = 0; i<52 ; i++)
         {
-            result += deck.get(i).getValue() + " " + deck.get(i).getSuite() +" ";
+            result += deck.get(i).value() + " " + deck.get(i).suit() +" ";
         }
         return result;
     }
