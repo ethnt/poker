@@ -28,6 +28,10 @@ public class Deck
         return this == other;
     }
     
+    public Card draw()
+    {
+        return deck.remove(0);
+    }
     public String toString()
     {
         String result = "";
