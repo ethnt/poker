@@ -116,4 +116,8 @@ public class Card implements Comparable<Card> {
 		
 		return result;
 	}
+	
+	public String toString() {
+		return value() + " of " + suit();
+	}
 }

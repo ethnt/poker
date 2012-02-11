@@ -77,6 +77,14 @@ public class CardTest extends junit.framework.TestCase {
 		
 		assertEquals(0, c1.compareTo(c2));
 	}
-
+	
+	/**
+	 * Test toString.
+	 */
+	public void testToString() {
+		Card c1 = new Card("2", "hearts");
+		
+		assertEquals("2 of hearts", c1.toString());
+	}
 
 }
