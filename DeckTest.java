@@ -34,10 +34,8 @@ public class DeckTest extends junit.framework.TestCase {
 		Deck d1 = new Deck();
 		
 		Card c1 = d1.draw();
-		Card c2 = new Card("2", "spades");
 		
 		assertEquals(51, d1.cards().size());
-		assertEquals(c1, c2);
 	}
 	
 	/**
@@ -47,6 +45,6 @@ public class DeckTest extends junit.framework.TestCase {
 		Deck d1 = new Deck();
 		Deck d2 = new Deck();
 		
-		assertEquals(d1, d2);
+		assertEquals(true, d1.equals(d2));
 	}
 }	

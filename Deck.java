@@ -49,7 +49,7 @@ public class Deck {
 	 * @return          True or false.
 	 */
 	public boolean equals(Deck other) {
-		return this == other;
+		return this.toString().equals(other.toString());
 	}
 	
 	/**

@@ -1,33 +1,15 @@
+import java.util.*;
 
 /**
- * Write a description of class Hand here.
+ * A hand of Cards for a Player.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author ()
+ * @version (0.1.0)
  */
-public class Hand
-{
-	// instance variables - replace the example below with your own
-	private int x;
+public class Hand {
 
 	/**
-	 * Constructor for objects of class Hand
+	 * Give the Hand some Cards.
 	 */
-	public Hand()
-	{
-		// initialise instance variables
-		x = 0;
-	}
-
-	/**
-	 * An example of a method - replace this comment with your own
-	 * 
-	 * @param  y   a sample parameter for a method
-	 * @return	 the sum of x and y 
-	 */
-	public int sampleMethod(int y)
-	{
-		// put your code here
-		return x + y;
-	}
+	public Hand(ArrayList<Card> cards) { }
 }

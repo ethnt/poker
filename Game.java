@@ -1,33 +1,20 @@
+import java.util.*;
 
 /**
- * Write a description of class Game here.
+ * A game of some sort.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author ()
+ * @version (0.1.0)
  */
-public class Game
-{
-	// instance variables - replace the example below with your own
-	private int x;
+public class Game {
 
 	/**
-	 * Constructor for objects of class Game
+	 * A default Game.
 	 */
-	public Game()
-	{
-		// initialise instance variables
-		x = 0;
-	}
-
+	public Game() { }
+	
 	/**
-	 * An example of a method - replace this comment with your own
-	 * 
-	 * @param  y   a sample parameter for a method
-	 * @return	 the sum of x and y 
+	 * A game with specific players.
 	 */
-	public int sampleMethod(int y)
-	{
-		// put your code here
-		return x + y;
-	}
+	public Game(ArrayList<Player> players) { }
 }

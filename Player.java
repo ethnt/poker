@@ -1,33 +1,20 @@
+import java.util.*;
 
 /**
- * Write a description of class Player here.
+ * A Player in a Game.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author () 
+ * @version (0.1.0)
  */
-public class Player
-{
-	// instance variables - replace the example below with your own
-	private int x;
+public class Player {
 
 	/**
-	 * Constructor for objects of class Player
+	 * The default Player, Joe Shmoe.
 	 */
-	public Player()
-	{
-		// initialise instance variables
-		x = 0;
-	}
+	public Player() { }
 
 	/**
-	 * An example of a method - replace this comment with your own
-	 * 
-	 * @param  y   a sample parameter for a method
-	 * @return	 the sum of x and y 
+	 * A Player with a name you choose.
 	 */
-	public int sampleMethod(int y)
-	{
-		// put your code here
-		return x + y;
-	}
+	public Player(String name) { }
 }
