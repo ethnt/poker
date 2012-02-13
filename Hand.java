@@ -106,7 +106,7 @@ public class Hand implements Comparable<Hand> {
 			}
 		}
 		
-		if (counter == 3) {
+		if (counter == 6) {
 			result = true;
 		}
 		
@@ -119,6 +119,9 @@ public class Hand implements Comparable<Hand> {
 		for (int i = 0; i < values.length - 1; i++){
         	if(values[i] == values[i + 1] - 1) {
             	result = true;
+        	}
+        	else{
+        	    result = false;
         	}
     	}
 		
@@ -161,7 +164,7 @@ public class Hand implements Comparable<Hand> {
 			}
 		}
 		
-		if (counter == 4) {
+		if (counter == 12) {
 			result = true;
 		}
 		
