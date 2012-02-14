@@ -14,37 +14,42 @@ public class HandTest extends junit.framework.TestCase
     public HandTest()
     {
     }
-
-    /**
-     * Sets up the test fixture.
-     *
-     * Called before every test case method.
-     */
-    protected void setUp()
-    {
-    }
-
-    /**
-     * Tears down the test fixture.
-     *
-     * Called after every test case method.
-     */
-    protected void tearDown()
-    {
-    }
-
-    public void testRanking()
-    {
-        ArrayList<Card> fullHouse = new ArrayList<Card>();
-        fullHouse.add(new Card("3", "clubs"));
-        fullHouse.add(new Card("3", "spades"));
-        fullHouse.add(new Card("3", "diamonds"));
-        fullHouse.add(new Card("6", "clubs"));
-        fullHouse.add(new Card("6", "hearts"));
+    
+    public void testPairRanking() {
+        ArrayList<Card> cards = new ArrayList<Card>();
+        cards.add(new Card("3", "clubs"));
+        cards.add(new Card("3", "clubs"));
+        cards.add(new Card("6", "hearts"));
+        cards.add(new Card("7", "spades"));
+        cards.add(new Card("10", "diamonds"));
+        Hand hand = new Hand(cards);
         
-        Hand fullHouseHand = new Hand(fullHouse);
+        assertEquals(1, hand.getRanking());
+    }
+    
+    public void testTwoPairRanking() {
+        ArrayList<Card> cards = new ArrayList<Card>();
+        cards.add(new Card("3", "clubs"));
+        cards.add(new Card("3", "clubs"));
+        cards.add(new Card("6", "hearts"));
+        cards.add(new Card("6", "spades"));
+        cards.add(new Card("10", "diamonds"));
+        Hand hand = new Hand(cards);
         
-        assertEquals(6, fullHouseHand.getRanking());
+        assertEquals(2, hand.getRanking());
+    }
+    
+    public void testFullHouseRanking() {
+        ArrayList<Card> cards = new ArrayList<Card>();
+        cards.add(new Card("3", "clubs"));
+        cards.add(new Card("3", "spades"));
+        cards.add(new Card("3", "diamonds"));
+        cards.add(new Card("6", "clubs"));
+        cards.add(new Card("6", "hearts"));
+        
+        Hand hand = new Hand(cards);
+        
+        assertEquals(6, hand.getRanking());
     }
 }
 

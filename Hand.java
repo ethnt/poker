@@ -109,7 +109,7 @@ public class Hand implements Comparable<Hand> {
             }
         }
         
-        if (counter == 2) {
+        if (counter > 2) {
             result = true;
         }
         
