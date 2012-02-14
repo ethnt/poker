@@ -24,13 +24,13 @@ public class HandTest extends junit.framework.TestCase
         cards.add(new Card("10", "diamonds"));
         Hand hand = new Hand(cards);
         
-        assertEquals(1, hand.getRanking());
+        assertEquals(1, hand.isTwoPair());
     }
     
     public void testTwoPairRanking() {
         ArrayList<Card> cards = new ArrayList<Card>();
         cards.add(new Card("3", "clubs"));
-        cards.add(new Card("3", "clubs"));
+        cards.add(new Card("3", "spades"));
         cards.add(new Card("6", "hearts"));
         cards.add(new Card("6", "spades"));
         cards.add(new Card("10", "diamonds"));

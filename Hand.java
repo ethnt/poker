@@ -79,7 +79,7 @@ public class Hand implements Comparable<Hand> {
         return result;
     }
     
-    public boolean isPair() {
+    private boolean isPair() {
         boolean result = false;
         
         for (int i = 0; i < values.length; i++) {
@@ -97,19 +97,36 @@ public class Hand implements Comparable<Hand> {
     
     public boolean isTwoPair() {
         boolean result = false;
-        int counter = 0; // Number of pairs.
+        int counter = 0;
         
+        ArrayList<Integer> ints = new ArrayList<Integer>();
         for (int i = 0; i < values.length; i++) {
-            for (int j = 0; j < values.length; j++) { // Compare the current value at i to every other card.
-                if (i != j) { // Stop if from comparing itself.
-                    if (values[i] == values[j]) {
-                        counter++; // If there is a pair, increase.
-                    }
+            ints.add(values[i]);
+        }
+        
+        /*for (int i = ints.size(); i >= 0; i--) {
+            for (int j = ints.size(); i >= 0; i--) {
+                if (ints.get(i).intValue() == ints.get(j).intValue()) {
+                    counter++;
+                    ints.remove(i);
+                    ints.remove(j);
+                }
+            }
+        }*/
+        
+        Iterator<Integer> i = ints.iterator();
+        Iterator<Integer> j = ints.iterator();
+        while (i.hasNext()) {
+            while (j.hasNext()) {
+                if (i.next().intValue() == j.next().intValue()) {
+                    counter++;
+                    i.next().remove();
+                    j.next().remove();
                 }
             }
         }
         
-        if (counter > 2) {
+        if (counter == 2) {
             result = true;
         }
         
