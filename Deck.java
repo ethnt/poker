@@ -73,7 +73,7 @@ public class Deck {
 			result += deck.get(i).value() + " of " + deck.get(i).suit() + " ";
 			
 			if (i < 51) {
-				result += "— ";
+				result += "--";
 			}
 		}
 		

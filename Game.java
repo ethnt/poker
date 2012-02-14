@@ -7,12 +7,14 @@ import java.util.*;
  * @version (0.1.0)
  */
 public class Game {
-    ArrayList<Player> player;
+    private ArrayList<Player> players;
+    private Deck deck;
     /**
      * A default Game.
      */
     public Game() {
-       player = new ArrayList<Player>();
+       players = new ArrayList<Player>();
+       deck = new Deck();
     }
     
     /**
@@ -22,15 +24,25 @@ public class Game {
     
     public void addPlayer()
     {
-        player.add(new Player());
+        players.add(new Player());
     }
     
     public void addPlayer(String name){
-        player.add(new Player(name));
+        players.add(new Player(name));
     }
     
-    public void addPlayer(Player play)
-    {
-        player.add(play);
+    public void addPlayer(Player player){
+        players.add(player);
+    }
+    
+    public void play(){
+        deck.shuffle();
+        deck.shuffle();
+        ArrayList<Card> temp1 = new ArrayList<Card>();
+        ArrayList<Card> temp2 = new ArrayList<Card>();
+        for (int i=0;i<5;i++){
+            temp1.add(deck.draw());
+            temp2.add(deck.draw());
+        }
     }
 }
