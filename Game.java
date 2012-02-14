@@ -36,6 +36,9 @@ public class Game {
     }
     
     public void play(){
+        Player player1 = new Player();
+        Player player2 = new Player("A Challenger");
+        System.out.println(player1.getName()+" and " + player2.getName() + " are now playing a game of poker.");
         deck.shuffle();
         deck.shuffle();
         ArrayList<Card> temp1 = new ArrayList<Card>();
@@ -44,5 +47,21 @@ public class Game {
             temp1.add(deck.draw());
             temp2.add(deck.draw());
         }
+        player1.giveHand(temp1);
+        player2.giveHand(temp2);
+        Hand hand1 = player1.getHand();
+        Hand hand2 = player2.getHand();
+        int winner = hand1.compareTo(hand2);
+        if(winner == 1){
+            System.out.println(player1.getName() + " is the winner!");
+        }
+        else if(winner ==-1){
+            System.out.println(player2.getName() + " is the winner!");
+        }
+        else{
+            System.out.println("We have a tie!");
+        }
+        System.out.println(player1);
+        System.out.println(player2);
     }
 }

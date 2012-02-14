@@ -28,7 +28,46 @@ public class Hand implements Comparable<Hand> {
 	}
 	
 	public int compareTo(Hand other) {
-		return 0; // Placeholder.
+	    int result = 0;
+	    if (this.getRanking() > other.getRanking()) {
+	        result = 1;
+	       }
+	    else if (other.getRanking() > this.getRanking()) {
+	        result = -1;
+	       }
+	    return result;
+	}
+	
+	public int getRanking() {
+	    int ranking = 0;
+	    if (isPair()) {
+	        ranking = 1;
+	       }
+	    else if (isTwoPair()) {
+	        ranking = 2;
+	       }
+	    else if (isThreeOfAKind()) {
+	        ranking = 3;
+	       }
+	    else if (isStraight()) {
+	        ranking = 4;
+	       }
+	    else if (isFlush()) {
+	        ranking = 5;
+	       }
+	    else if (isFullHouse()) {
+	        ranking = 6;
+	       }
+	    else if (isFourOfAKind()) {
+	        ranking = 7;
+	       }
+	    else if (isStraightFlush()) {
+	        ranking = 8;
+	       }
+	    else {
+	        /* WTF */
+	       }
+	    return ranking;
 	}
 	
 	/* -------------------------------------------*/
@@ -179,5 +218,14 @@ public class Hand implements Comparable<Hand> {
 		}
 		
 		return result;
+	}
+	
+	public String toString(){
+	    String result="";
+	    result += hand.get(0).toString();
+	    for (int i=1;i<5;i++){
+	        result+= ", "+ hand.get(i).toString();
+	       }
+	       return result;
 	}
 }

@@ -46,6 +46,9 @@ public class Player implements Comparable{
         hand = new Hand(cards);
     }
     
+    public String toString(){
+        return n + " has " + hand;
+    }
     //public void addCardToHand(Card card){
         //placeholder for extension
     //}
