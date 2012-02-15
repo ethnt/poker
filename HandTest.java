@@ -105,5 +105,29 @@ public class HandTest extends junit.framework.TestCase {
         
         assertEquals(8.1, hand.isStraightFlush());
     }
+    
+    public void testCompareTo() {
+        ArrayList<Card> straightFlushCards = new ArrayList<Card>();
+        straightFlushCards.add(new Card("6", "clubs"));
+        straightFlushCards.add(new Card("7", "clubs"));
+        straightFlushCards.add(new Card("8", "clubs"));
+        straightFlushCards.add(new Card("9", "clubs"));
+        straightFlushCards.add(new Card("10", "clubs"));
+        Hand straightFlush = new Hand(straightFlushCards);
+        Hand straightFlush2 = new Hand(straightFlushCards);
+        
+        
+        ArrayList<Card> pairCards = new ArrayList<Card>();
+        pairCards.add(new Card("3", "clubs"));
+        pairCards.add(new Card("3", "spades"));
+        pairCards.add(new Card("5", "hearts"));
+        pairCards.add(new Card("6", "spades"));
+        pairCards.add(new Card("10", "diamonds"));
+        Hand pair = new Hand(pairCards);
+        
+        assertEquals(1, straightFlush.compareTo(pair));
+        assertEquals(-1, pair.compareTo(straightFlush));
+        assertEquals(0, straightFlush.compareTo(straightFlush2));
+    }
 }
 
