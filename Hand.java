@@ -79,16 +79,12 @@ public class Hand implements Comparable<Hand> {
         return result;
     }
     
-    private boolean isPair() {
+    public boolean isPair() {
         boolean result = false;
         
-        for (int i = 0; i < values.length; i++) {
-            for (int j = 0; j < values.length; j++) { // Compare the current value at i to every other card.
-                if (i != j) { // Stop if from comparing itself.
-                    if (values[i] == values[j]) {
-                        result = true;
-                    }
-                }
+        for (int i = 0; i < values.length - 1; i++) {
+            if (values[i] == values[i + 1]) {
+                result = true;
             }
         }
         
@@ -97,32 +93,11 @@ public class Hand implements Comparable<Hand> {
     
     public boolean isTwoPair() {
         boolean result = false;
-        int counter = 0;
+        int counter = 0; // Number of pairs.
         
-        ArrayList<Integer> ints = new ArrayList<Integer>();
-        for (int i = 0; i < values.length; i++) {
-            ints.add(values[i]);
-        }
-        
-        /*for (int i = ints.size(); i >= 0; i--) {
-            for (int j = ints.size(); i >= 0; i--) {
-                if (ints.get(i).intValue() == ints.get(j).intValue()) {
-                    counter++;
-                    ints.remove(i);
-                    ints.remove(j);
-                }
-            }
-        }*/
-        
-        Iterator<Integer> i = ints.iterator();
-        Iterator<Integer> j = ints.iterator();
-        while (i.hasNext()) {
-            while (j.hasNext()) {
-                if (i.next().intValue() == j.next().intValue()) {
-                    counter++;
-                    i.next().remove();
-                    j.next().remove();
-                }
+        for (int i = 0; i < values.length - 1; i++) {
+            if (values[i] == values[i + 1]) {
+                counter++;
             }
         }
         
@@ -136,19 +111,11 @@ public class Hand implements Comparable<Hand> {
     public boolean isThreeOfAKind() {
         boolean result = false;
         int counter = 0; // Number of alike cards.
-        
-        for (int i = 0; i < values.length; i++) {
-            for (int j = 0; j < values.length; j++) { // Compare the current value at i to every other card.
-                if (i != j) {
-                    if (values[i] == values[j]) {
-                        counter++;
-                    }
-                }
+       
+        for (int i = 0; i < values.length - 2; i++) {
+            if (values[i] == values[i + 1] && values[i] == values[i + 2]) {
+                result = true;
             }
-        }
-        
-        if (counter == 6) { // 6 because every time the first for loop iterates, it counts the others that are the same, but it does this three times (one for each).
-            result = true;
         }
         
         return result;
@@ -212,19 +179,11 @@ public class Hand implements Comparable<Hand> {
     public boolean isFourOfAKind() { // Same code as isThreeOfAKind(), except the counter must equal 4.
         boolean result = false;
         int counter = 0; // Number of alike cards.
-        
-        for (int i = 0; i < values.length; i++) {
-            for (int j = 0; j < values.length; j++) { // Compare the current value at i to every other card.
-                if (i != j) {
-                    if (values[i] == values[j]) {
-                        counter++;
-                    }
-                }
+       
+        for (int i = 0; i < values.length - 3; i++) {
+            if (values[i] == values[i + 1] && values[i] == values[i + 2] && values[i] == values[i + 3]) {
+                result = true;
             }
-        }
-        
-        if (counter == 12) {
-            result = true;
         }
         
         return result;

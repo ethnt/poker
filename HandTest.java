@@ -15,19 +15,19 @@ public class HandTest extends junit.framework.TestCase
     {
     }
     
-    public void testPairRanking() {
+    public void testPair() {
         ArrayList<Card> cards = new ArrayList<Card>();
         cards.add(new Card("3", "clubs"));
-        cards.add(new Card("3", "clubs"));
-        cards.add(new Card("6", "hearts"));
-        cards.add(new Card("7", "spades"));
+        cards.add(new Card("3", "spades"));
+        cards.add(new Card("5", "hearts"));
+        cards.add(new Card("6", "spades"));
         cards.add(new Card("10", "diamonds"));
         Hand hand = new Hand(cards);
         
-        assertEquals(1, hand.isTwoPair());
+        assertEquals(true, hand.isPair());
     }
     
-    public void testTwoPairRanking() {
+    public void testTwoPair() {
         ArrayList<Card> cards = new ArrayList<Card>();
         cards.add(new Card("3", "clubs"));
         cards.add(new Card("3", "spades"));
@@ -36,20 +36,79 @@ public class HandTest extends junit.framework.TestCase
         cards.add(new Card("10", "diamonds"));
         Hand hand = new Hand(cards);
         
-        assertEquals(2, hand.getRanking());
+        assertEquals(true, hand.isTwoPair());
     }
     
-    public void testFullHouseRanking() {
+    public void testThreeOfAKind() {
         ArrayList<Card> cards = new ArrayList<Card>();
         cards.add(new Card("3", "clubs"));
         cards.add(new Card("3", "spades"));
-        cards.add(new Card("3", "diamonds"));
-        cards.add(new Card("6", "clubs"));
-        cards.add(new Card("6", "hearts"));
-        
+        cards.add(new Card("3", "hearts"));
+        cards.add(new Card("6", "spades"));
+        cards.add(new Card("10", "diamonds"));
         Hand hand = new Hand(cards);
         
-        assertEquals(6, hand.getRanking());
+        assertEquals(true, hand.isThreeOfAKind());
+    }
+    
+    public void testStraight() {
+        ArrayList<Card> cards = new ArrayList<Card>();
+        cards.add(new Card("3", "clubs"));
+        cards.add(new Card("4", "spades"));
+        cards.add(new Card("5", "hearts"));
+        cards.add(new Card("6", "spades"));
+        cards.add(new Card("7", "diamonds"));
+        Hand hand = new Hand(cards);
+        
+        assertEquals(true, hand.isStraight());
+    }
+    
+    public void testFlush() {
+        ArrayList<Card> cards = new ArrayList<Card>();
+        cards.add(new Card("2", "clubs"));
+        cards.add(new Card("4", "clubs"));
+        cards.add(new Card("7", "clubs"));
+        cards.add(new Card("8", "clubs"));
+        cards.add(new Card("10", "clubs"));
+        Hand hand = new Hand(cards);
+        
+        assertEquals(true, hand.isFlush());
+    }
+    
+    public void testFullHouse() {
+        ArrayList<Card> cards = new ArrayList<Card>();
+        cards.add(new Card("3", "clubs"));
+        cards.add(new Card("3", "diamonds"));
+        cards.add(new Card("3", "spades"));
+        cards.add(new Card("6", "clubs"));
+        cards.add(new Card("6", "hearts"));
+        Hand hand = new Hand(cards);
+        
+        assertEquals(true, hand.isFullHouse());
+    }
+    
+    public void testFourOfAKind() {
+        ArrayList<Card> cards = new ArrayList<Card>();
+        cards.add(new Card("3", "clubs"));
+        cards.add(new Card("3", "diamonds"));
+        cards.add(new Card("3", "spades"));
+        cards.add(new Card("3", "clubs"));
+        cards.add(new Card("6", "hearts"));
+        Hand hand = new Hand(cards);
+        
+        assertEquals(true, hand.isFourOfAKind());
+    }
+    
+    public void testStraightFlush() {
+        ArrayList<Card> cards = new ArrayList<Card>();
+        cards.add(new Card("2", "clubs"));
+        cards.add(new Card("3", "clubs"));
+        cards.add(new Card("4", "clubs"));
+        cards.add(new Card("5", "clubs"));
+        cards.add(new Card("6", "clubs"));
+        Hand hand = new Hand(cards);
+        
+        assertEquals(true, hand.isFourOfAKind());
     }
 }
 
