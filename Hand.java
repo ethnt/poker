@@ -50,7 +50,7 @@ public class Hand implements Comparable<Hand> {
         else if (isFullHouse()) { ranking = 6; }
         else if (isFourOfAKind()) { ranking = 7; }
         else if (isStraightFlush()) { ranking = 8; }
-        else { /* WTF */ }
+        else { /* What? */ }
         
         return ranking;
     }
