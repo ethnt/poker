@@ -96,14 +96,14 @@ public class HandTest extends junit.framework.TestCase {
     
     public void testStraightFlush() {
         ArrayList<Card> cards = new ArrayList<Card>();
-        cards.add(new Card("2", "clubs"));
-        cards.add(new Card("3", "clubs"));
-        cards.add(new Card("4", "clubs"));
-        cards.add(new Card("5", "clubs"));
         cards.add(new Card("6", "clubs"));
+        cards.add(new Card("7", "clubs"));
+        cards.add(new Card("8", "clubs"));
+        cards.add(new Card("9", "clubs"));
+        cards.add(new Card("10", "clubs"));
         Hand hand = new Hand(cards);
         
-        assertEquals(8.06, hand.isFourOfAKind());
+        assertEquals(8.1, hand.isStraightFlush());
     }
 }
 

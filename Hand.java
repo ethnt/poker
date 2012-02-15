@@ -189,9 +189,9 @@ public class Hand implements Comparable<Hand> {
 		return result;
 	}
 	
-	public double isFourOfAKind() { // Same code as isThreeOfAKind(), except the counter must equal 4.
+	public double isFourOfAKind() {
 		double result = 0.0;
-		int counter = 0; // Number of alike cards.
+		int counter = 0;
 	   
 		for (int i = 0; i < values.length - 3; i++) {
 			if (values[i] == values[i + 1] && values[i] == values[i + 2] && values[i] == values[i + 3]) {
