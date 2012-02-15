@@ -126,7 +126,7 @@ public class Hand implements Comparable<Hand> {
 	
 	public double isThreeOfAKind() {
 		double result = 0.0;
-		int counter = 0; // Number of alike cards.
+		int counter = 0;
 	   
 		for (int i = 0; i < values.length - 2; i++) {
 			if (values[i] == values[i + 1] && values[i] == values[i + 2]) {
@@ -141,7 +141,7 @@ public class Hand implements Comparable<Hand> {
 		double result = 0.0;
 		
 		for (int i = 0; i < values.length - 1; i++){
-			if(values[i] == values[i + 1] - 1) {
+			if (values[i] == values[i + 1] - 1) {
 				result = 4.0 + (values[i + 1] * 0.01);
 			} else {
 				result = 0.0;
@@ -154,10 +154,11 @@ public class Hand implements Comparable<Hand> {
 	public double isFlush() {
 		double result = 0.0;
 		
-		String suit = suits[0]; // The suit to compare to.
+		String suit = suits[0];
 		
 		for (int i = 0; i < suits.length; i++) {
 			result = 5.0 + (values[i] * 0.01);
+
 			if (suits[i].equals(suit) == false) {
 				result = 0.0;
 			}
@@ -166,8 +167,24 @@ public class Hand implements Comparable<Hand> {
 		return result;
 	}
 	
-	public double isFullHouse() { // WIP
+	public double isFullHouse() {
 		double result = 0.0;
+		boolean one = false;
+		boolean two = false;
+		
+		for (int i = 0; i < values.length - 2; i++) {
+			if (values[i] == values[i + 1] && values[i] == values[i + 2]) {
+				one = true;
+			}
+		}
+		
+		if (values[3] == values[4]) {
+			two = true;
+		}
+		
+		if (one && two) {
+			result = 6.0 + (values[values.length - 1] * 0.01);
+		}
 		
 		return result;
 	}
