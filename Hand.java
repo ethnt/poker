@@ -7,53 +7,72 @@ import java.util.*;
  * @version (0.1.0)
  */
 public class Hand implements Comparable<Hand> {
-    private ArrayList<Card> hand;
-    private int[] values;
-    private String[] suits;
-    
-    /**
-     * Construct a Hand and give the Hand some Cards.
-     */
-    public Hand(ArrayList<Card> cards) {
-        hand = cards;
-        values = values();
-        suits = suits();
-        
-        Arrays.sort(values);
-        Arrays.sort(suits);
-    }
-    
-    public ArrayList<Card> cards() {
-        return hand;
-    }
-    
-    public int compareTo(Hand other) {
-        int result = 0;
-        
-        if (this.getRanking() > other.getRanking()) {
-            result = 1;
-        } else if (other.getRanking() > this.getRanking()) {
-            result = -1;
-        }
-        
-        return result;
-    }
-    
-    public int getRanking() {
-        int ranking = 0;
-        
-        if (isPair()) { ranking = 1; }
-        else if (isTwoPair()) { ranking = 2; }
-        else if (isThreeOfAKind()) { ranking = 3; }
-        else if (isStraight()) { ranking = 4; }
-        else if (isFlush()) { ranking = 5; }
-        else if (isFullHouse()) { ranking = 6; }
-        else if (isFourOfAKind()) { ranking = 7; }
-        else if (isStraightFlush()) { ranking = 8; }
-        else { /* What? */ }
-        
-        return ranking;
-    }
+	    private ArrayList<Card> hand;
+	    private int[] values;
+	    private String[] suits;
+
+	    /**
+	     * Construct a Hand and give the Hand some Cards.
+	     */
+	    public Hand(ArrayList<Card> cards) {
+	        hand = cards;
+	        values = values();
+	        suits = suits();
+
+	        Arrays.sort(values);
+	        Arrays.sort(suits);
+	    }
+
+		public ArrayList<Card> cards() {
+			return hand;
+		}
+
+		public int compareTo(Hand other) {
+		    int result = 0;
+		    if (this.getRanking() > other.getRanking()) {
+		        result = 1;
+		       }
+		    else if (other.getRanking() > this.getRanking()) {
+		        result = -1;
+		       }
+		    else{
+		        int[] mine = this.values();
+		        int[] theirs = other.values();
+		       }
+		    return result;
+		}
+
+		public double getRanking() {
+		    double ranking = 0;
+		    if (isStraightFlush()>8.0) {
+		        ranking = isStraightFlush();
+		       }
+		    else if (isFourOfAKind()>7.0) {
+		        ranking = isFourOfAKind();
+		       }
+		    else if (isFullHouse()>6.0) {
+		        ranking = isFullHouse();
+		       }
+		    else if (isFlush()>5.0) {
+		        ranking = isFlush();
+		       }
+		    else if (isStraight()>4.0) {
+		        ranking = isStraight();
+		       }
+		    else if (isThreeOfAKind()>3.0) {
+		        ranking = isThreeOfAKind();
+		       }
+		    else if (isTwoPair()>2.0) {
+		        ranking = isTwoPair();
+		       }
+		    else if (isPair()>1.0) {
+		        ranking = isPair();
+		       }
+		    else {
+		        /* WTF */
+		       }
+		    return ranking;
+		}
     
     /* -------------------------------------------*/
     
@@ -198,4 +217,14 @@ public class Hand implements Comparable<Hand> {
         
         return result;
     }
+
+	public String toString(){
+	    String result="";
+	    result += hand.get(0).toString();
+	    for (int i=1;i<5;i++){
+	        result+= ", "+ hand.get(i).toString();
+	       }
+	       return result;
+	}
+
 }
