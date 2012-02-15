@@ -30,14 +30,14 @@ public class Hand implements Comparable<Hand> {
 	public int compareTo(Hand other) {
 		int result = 0;
 		
-		if (Math.abs(this.getRanking()-other.getRanking()) > 0.00000000001){
-		dd
+		if (Math.abs(this.getRanking() - other.getRanking()) > 0.00000000001){
+			result = 0;
 		} else if (this.getRanking() > other.getRanking()) {
 			result = 1;
 		} else if (other.getRanking() > this.getRanking()) {
 			result = -1;
-		} else{
-			// Not Possible.
+		} else {
+			// WTF?
 		}
 		
 		return result;
@@ -200,7 +200,7 @@ public class Hand implements Comparable<Hand> {
 		result += hand.get(0).toString();
 		
 		for (int i = 1; i < 5; i++) {
-			result+= ", "+ hand.get(i).toString();
+			result += ", "+ hand.get(i).toString();
 		}
 		
 		return result;

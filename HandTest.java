@@ -6,14 +6,9 @@ import java.util.*;
  * @author  (your name)
  * @version (a version number or a date)
  */
-public class HandTest extends junit.framework.TestCase
-{
-    /**
-     * Default constructor for test class HandTest
-     */
-    public HandTest()
-    {
-    }
+public class HandTest extends junit.framework.TestCase {
+    
+    public HandTest() { }
     
     public void testPair() {
         ArrayList<Card> cards = new ArrayList<Card>();
@@ -24,7 +19,7 @@ public class HandTest extends junit.framework.TestCase
         cards.add(new Card("10", "diamonds"));
         Hand hand = new Hand(cards);
         
-        assertEquals(true, hand.isPair());
+        assertEquals(1.03, hand.isPair());
     }
     
     public void testTwoPair() {
@@ -36,7 +31,7 @@ public class HandTest extends junit.framework.TestCase
         cards.add(new Card("10", "diamonds"));
         Hand hand = new Hand(cards);
         
-        assertEquals(true, hand.isTwoPair());
+        assertEquals(2.06, hand.isTwoPair());
     }
     
     public void testThreeOfAKind() {
@@ -48,7 +43,7 @@ public class HandTest extends junit.framework.TestCase
         cards.add(new Card("10", "diamonds"));
         Hand hand = new Hand(cards);
         
-        assertEquals(true, hand.isThreeOfAKind());
+        assertEquals(3.03, hand.isThreeOfAKind());
     }
     
     public void testStraight() {
@@ -60,7 +55,7 @@ public class HandTest extends junit.framework.TestCase
         cards.add(new Card("7", "diamonds"));
         Hand hand = new Hand(cards);
         
-        assertEquals(true, hand.isStraight());
+        assertEquals(4.07, hand.isStraight());
     }
     
     public void testFlush() {
@@ -72,7 +67,7 @@ public class HandTest extends junit.framework.TestCase
         cards.add(new Card("10", "clubs"));
         Hand hand = new Hand(cards);
         
-        assertEquals(true, hand.isFlush());
+        assertEquals(5.10, hand.isFlush());
     }
     
     public void testFullHouse() {
@@ -84,7 +79,7 @@ public class HandTest extends junit.framework.TestCase
         cards.add(new Card("6", "hearts"));
         Hand hand = new Hand(cards);
         
-        assertEquals(true, hand.isFullHouse());
+        assertEquals(6.06, hand.isFullHouse());
     }
     
     public void testFourOfAKind() {
@@ -96,7 +91,7 @@ public class HandTest extends junit.framework.TestCase
         cards.add(new Card("6", "hearts"));
         Hand hand = new Hand(cards);
         
-        assertEquals(true, hand.isFourOfAKind());
+        assertEquals(7.03, hand.isFourOfAKind());
     }
     
     public void testStraightFlush() {
@@ -108,7 +103,7 @@ public class HandTest extends junit.framework.TestCase
         cards.add(new Card("6", "clubs"));
         Hand hand = new Hand(cards);
         
-        assertEquals(true, hand.isFourOfAKind());
+        assertEquals(8.06, hand.isFourOfAKind());
     }
 }
 
