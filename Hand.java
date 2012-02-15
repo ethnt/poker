@@ -35,34 +35,38 @@ public class Hand implements Comparable<Hand> {
 	    else if (other.getRanking() > this.getRanking()) {
 	        result = -1;
 	       }
+	    else{
+	        int[] mine = this.values();
+	        int[] theirs = other.values();
+	       }
 	    return result;
 	}
 	
-	public int getRanking() {
-	    int ranking = 0;
-	    if (isPair()) {
-	        ranking = 1;
+	public double getRanking() {
+	    double ranking = 0;
+	    if (isStraightFlush()>8.0) {
+	        ranking = isStraightFlush();
 	       }
-	    else if (isTwoPair()) {
-	        ranking = 2;
+	    else if (isFourOfAKind()>7.0) {
+	        ranking = isFourOfAKind();
 	       }
-	    else if (isThreeOfAKind()) {
-	        ranking = 3;
+	    else if (isFullHouse()>6.0) {
+	        ranking = isFullHouse();
 	       }
-	    else if (isStraight()) {
-	        ranking = 4;
+	    else if (isFlush()>5.0) {
+	        ranking = isFlush();
 	       }
-	    else if (isFlush()) {
-	        ranking = 5;
+	    else if (isStraight()>4.0) {
+	        ranking = isStraight();
 	       }
-	    else if (isFullHouse()) {
-	        ranking = 6;
+	    else if (isThreeOfAKind()>3.0) {
+	        ranking = isThreeOfAKind();
 	       }
-	    else if (isFourOfAKind()) {
-	        ranking = 7;
+	    else if (isTwoPair()>2.0) {
+	        ranking = isTwoPair();
 	       }
-	    else if (isStraightFlush()) {
-	        ranking = 8;
+	    else if (isPair()>1.0) {
+	        ranking = isPair();
 	       }
 	    else {
 	        /* WTF */
@@ -94,14 +98,14 @@ public class Hand implements Comparable<Hand> {
 		return result;
 	}
 	
-	public boolean isPair() {
-		boolean result = false;
+	public double isPair() {
+		double result = 0;
 		
 		for (int i = 0; i < values.length; i++) {
 			for (int j = 0; j < values.length; j++) { // Compare the current value at i to every other card.
 				if (i != j) { // Stop if from comparing itself.
 					if (values[i] == values[j]) {
-						result = true;
+						result = 1+i*.01;
 					}
 				}
 			}
@@ -110,8 +114,9 @@ public class Hand implements Comparable<Hand> {
 		return result;
 	}
 	
-	public boolean isTwoPair() {
-		boolean result = false;
+	public double isTwoPair() {
+		double result = 0;
+		double value = 0.0;
 		int counter = 0; // Number of pairs.
 		
 		for (int i = 0; i < values.length; i++) {
@@ -119,20 +124,22 @@ public class Hand implements Comparable<Hand> {
 				if (i != j) { // Stop if from comparing itself.
 					if (values[i] == values[j]) {
 						counter++; // If there is a pair, increase.
+						value = i*.01;
 					}
 				}
 			}
 		}
 		
 		if (counter == 2) {
-			result = true;
+			result = counter + value;
 		}
 		
 		return result;
 	}
 	
-	public boolean isThreeOfAKind() {
-		boolean result = false;
+	public double isThreeOfAKind() {
+		double result = 0;
+		double value = 0;
 		int counter = 0; // Number of alike cards.
 		
 		for (int i = 0; i < values.length; i++) {
@@ -140,57 +147,58 @@ public class Hand implements Comparable<Hand> {
 				if (i != j) {
 					if (values[i] == values[j]) {
 						counter++;
+						value = i*.01;
 					}
 				}
 			}
 		}
 		
 		if (counter == 6) {
-			result = true;
+			result = 3+value;
 		}
 		
 		return result;
 	}
 	
-	public boolean isStraight() {
-		boolean result = false;
+	public double isStraight() {
+		double result = 0;
 		
 		for (int i = 0; i < values.length - 1; i++){
         	if(values[i] == values[i + 1] - 1) {
-            	result = true;
+            	result = 4 +(i+1)*.01;
         	}
-        	else{
-        	    result = false;
-        	}
+
     	}
 		
 		return result;
 	}
 	
-	public boolean isFlush() {
-		boolean result = true;
+	public double isFlush() {
+		double result = 0;
 		
 		String suit = suits[0]; // The suit to compare to.
 		
 		for (int i = 0; i < suits.length; i++) {
-			if (suits[i].equals(suit) == false) {
-				result = false;
+			result = 5+i*.01;
+		    if (suits[i].equals(suit) == false) {
+				result = 0;
 			}
 		}
 		
 		return result;
 	}
 	
-	public boolean isFullHouse() {
-		boolean result = false;
+	public double isFullHouse() {
+		double result = 0;
 		
 		// TO-DO
 		
 		return result;
 	}
 	
-	public boolean isFourOfAKind() { // Same code as isThreeOfAKind(), except the counter must equal 4.
-		boolean result = false;
+	public double isFourOfAKind() { // Same code as isThreeOfAKind(), except the counter must equal 4.
+		double result = 0;
+		double value = 0;
 		int counter = 0; // Number of alike cards.
 		
 		for (int i = 0; i < values.length; i++) {
@@ -198,23 +206,24 @@ public class Hand implements Comparable<Hand> {
 				if (i != j) {
 					if (values[i] == values[j]) {
 						counter++;
+						value = i*.01;
 					}
 				}
 			}
 		}
 		
 		if (counter == 12) {
-			result = true;
+			result = 7+value;
 		}
 		
 		return result;
 	}
 	
-	public boolean isStraightFlush() {
-		boolean result = false;
+	public double isStraightFlush() {
+		double result = 0;
 		
-		if (isStraight() && isFlush()) {
-			result = true;
+		if (isStraight()>4 && isFlush()>5) {
+			result = 8+isStraight()-4.0;
 		}
 		
 		return result;
