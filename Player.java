@@ -3,31 +3,32 @@ import java.util.*;
 /**
  * A Player in a Game.
  * 
- * @author () 
+ * @author (Brett Morris & Ethan Turkeltaub) 
  * @version (0.1.0)
  */
-public class Player implements Comparable{
-    private String n;
+public class Player implements Comparable<Player> {
+    private String name;
     private Hand hand;
+    
     /**
      * The default Player, Joe Shmoe.
      */
     public Player() {
-       n = "Joe Shmoe";
-       }
+        name = "Joe Shmoe";
+    }
 
     /**
      * A Player with a name you choose.
      */
-    public Player(String name) {
-       n = name;
-       }
-       
-    public String getName(){
-        return n;
+    public Player(String player) {
+        name = player;
     }
     
-    public int compareTo(Object other){
+    public String getName(){
+        return name;
+    }
+    
+    public int compareTo(Player other){
         if(this==other)
         {
             return 0;
@@ -47,7 +48,7 @@ public class Player implements Comparable{
     }
     
     public String toString(){
-        return n + " has " + hand;
+        return name + " has " + hand;
     }
     //public void addCardToHand(Card card){
         //placeholder for extension

@@ -174,9 +174,9 @@ public class Hand implements Comparable<Hand> {
 	}
 	
 	/**
-	 * Check if it is a straight.
+	 * Check if it is a flush.
 	 * 
-	 * @return   If it is straight, the double 5.0 plus decimals representing the high card. If not, 0.
+	 * @return   If it is flush, the double 5.0 plus decimals representing the high card. If not, 0.
 	 */
 	public double isFlush() {
 		double result = 0.0;
