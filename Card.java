@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * A playing card.
  * 
- * @author (Ethan Turkeltaub)
+ * @author (Ethan Turkeltaub & Brett Morris)
  * @version (0.1.0)
  */
 

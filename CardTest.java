@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * The test class CardTest.
+ * The unit testing of Card.
  *
  * @author  (Ethan Turkeltaub)
  * @version (0.1.0)
