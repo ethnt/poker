@@ -168,8 +168,8 @@ public class HandTest extends junit.framework.TestCase {
 	 */
 	public void testCompareTo() {
 		assertEquals(0, pair.compareTo(pair));
-		assertEquals(-1, pair.compareTo(straightFlush));
-		assertEquals(1, straightFlush.compareTo(pair));
+		assertEquals(-1, pair.compareTo(fullHouse));
+		assertEquals(1, fullHouse.compareTo(pair));
 	}
 }
 

@@ -259,32 +259,34 @@ public class Hand implements Comparable<Hand> {
      * Get the value of the card (2-10, J, Q, K, A).
      * 
      * @param    other   The Hand to compare to.
-     * @return           An integer. If 0, then they are equal, -1 if the current hard (the one calling the method) is weaker than the other, and 1 if the hard calling the method is better.
+     * @return           An integer. If 0, then they are equal, -1 if the current hard (the one calling the method) is weaker than the other, and 1 if the hand calling the method is better.
      */
     public int compareTo(Hand other) {
         int result = 0;
         
-        if (Math.abs(this.getRanking() - other.getRanking()) > 0.00000000001){
-            if (this.isStraight() < 4.0 ){
-                int[] mine = new int[5];
-                int[] theirs = new int[5];
-                //int notWant = (this.getRanking() - (int)this.getRanking())*10.0;
-                for (int i = 0 ; i < 5 ; i++){
-                    mine[i] = values[i];
-                    theirs[i] = other.values()[i];
-                }
-               // while(mine[].indexOf(notWant)!=-1 && theirs[].indexOf(notWant)!=-1)
-                //{
-                  //  mine[mine.indexOf(notWant)] = null;
-                  //  theirs[theirs.indexOf(notWant)] = null;
-                //}
-            } 
-        } else if (this.getRanking() > other.getRanking()) {
+        int thisIntRank = (int)this.getRanking();
+        int otherIntRank = (int)other.getRanking();
+        
+        double tempThisHighCard = this.getRanking() - thisIntRank;
+        double tempOtherHighCard = other.getRanking() - otherIntRank;
+        
+        int thisHighCard = (int)tempThisHighCard;
+        int otherHighCard = (int)tempOtherHighCard;
+        
+        if (thisIntRank == otherIntRank){ // If the same rank.
+            if (thisHighCard > otherHighCard) {
+                result = 1;
+            } else if (otherHighCard > thisHighCard) {
+                result = -1;
+            } else {
+                result = 0;
+            }
+        } else if (thisIntRank > otherIntRank) { // If this is of greater rank.
             result = 1;
-        } else if (other.getRanking() > this.getRanking()) {
+        } else if (otherIntRank > thisIntRank) { // If the other is of greater rank.
             result = -1;
-        } else {
-            // WTF?
+        } else { // Something different?
+            result = 0;
         }
         
         return result;
