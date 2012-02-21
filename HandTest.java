@@ -162,5 +162,14 @@ public class HandTest extends junit.framework.TestCase {
 		assertEquals(7.03, fourOfAKind.getRanking());
 		assertEquals(8.10, straightFlush.getRanking());
 	}
+	
+	/**
+	 * compareTo testing.
+	 */
+	public void testCompareTo() {
+		assertEquals(0, pair.compareTo(pair));
+		assertEquals(-1, pair.compareTo(straightFlush));
+		assertEquals(1, straightFlush.compareTo(pair));
+	}
 }
 
